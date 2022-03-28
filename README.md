@@ -1,3 +1,11 @@
+# Assignment_2_JavaScript_Methods
+
+**Group Members and GitHub usernames:**
+- **Brian To:** bto2442
+- **Raymond Kwok:** raymondkwok7877
+- **Tim Zhen:** timzhen38
+- **Yi Ren Mai:** yiren987
+
 # bank-of-react-example-code
 This repository contains a React application example on how to implement client-side routing with React Router and its components including Route, Router, Switch, Link, and Redirect.
 
