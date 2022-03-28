@@ -1,4 +1,4 @@
-# Assignment_2_JavaScript_Methods
+# Assignment_4_Bank_of_React
 
 **Group Members and GitHub usernames:**
 - **Brian To:** bto2442
