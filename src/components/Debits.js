@@ -1,4 +1,5 @@
 // src/components/Debits.js
+import {Link} from 'react-router-dom';
 
 const Debits = (props) => {
 	let debitsView = () => {
@@ -13,10 +14,13 @@ const Debits = (props) => {
     	   <h1>Debits</h1>
     	   {debitsView()}
            <form onSubmit={props.addDebit}>
+             <label htmlFor="description">Description</label>
              <input type="text" name="description" />
+             <label htmlFor="amount">Amount</label>
              <input type="number" name="amount" />
              <button type="submit">Add Debit</button>
            </form>
+        <Link to="/">Return to Home</Link>
     	</div>
 
     )
