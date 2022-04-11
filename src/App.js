@@ -6,7 +6,7 @@ import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
 import Credits from './components/Credits';
-import Debit from './components/Debits';
+import Debits from './components/Debits';
 import axios from 'axios';
 
 class App extends Component {
@@ -28,11 +28,11 @@ class App extends Component {
     let creditAPI = 'https://moj-api.herokuapp.com/credits'  //Link to API for credit info
     let debitAPI = 'https://moj-api.herokuapp.com/debits'  //Link to API for debit info
 
-    let cResponse = await axios.get(creditAPI);
-    let dResponse = await axios.get(debitAPI);
+    let creditResponse = await axios.get(creditAPI);
+    let debitResponse = await axios.get(debitAPI);
 
-    this.setState({credits: cResponse.data});
-    this.setState({debits: dResponse.data});
+    this.setState({credits: creditResponse.data});
+    this.setState({debits: debitResponse.data});
   }
 
   // Update state's currentUser (userName and memberSince) after "Log In" button is clicked
@@ -46,19 +46,13 @@ class App extends Component {
   }
 
   addCredit = (e) =>{
-    e.preventDefault()
-    const inputDesc = e.target.description.value
-    const inputAm = parseInt(e.target.amount.value)
-    const date = new Date();
-    const formatDate = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
-    const testCredit=[{
-        id:this.state.credits.length+1,
-        description: inputDesc,
-        date: formatDate,
-        amount: inputAm
-      }]
-    this.setState({credits: this.state.credits.concat(testCredit)})
-
+    e.preventDefault()  //stops page refresh on form submission
+    var today = new Date()
+    var currentDay = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate()
+    this.setState(prevState => ({
+      accountBalance: (parseFloat(this.state.accountBalance) + parseFloat(e.target.amount.value)).toFixed(2),
+      credits: [...prevState.credits, {id: this.state.credits.length+1, amount: e.target.amount.value, description: e.target.description.value, date: currentDay}] //update state with a new item
+    }))
   }
 
   addDebit = (e) => {
@@ -78,8 +72,8 @@ class App extends Component {
         <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);  // Pass props to "LogIn" component
-    const CreditComponent = () =>(<Credits credits={this.state.credits} addCredit={this.addCredit} accountBalance={this.state.accountBalance}/>)
-    const DebitsComponent = () => (<Debit accountBalance={this.state.accountBalance} debits={this.state.debits} addDebit={this.addDebit}/>); // Pass props to "Debits" component
+    const CreditsComponent = () => (<Credits accountBalance={this.state.accountBalance} credits={this.state.credits} addCredit={this.addCredit}/>);
+    const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} debits={this.state.debits} addDebit={this.addDebit}/>); // Pass props to "Debits" component
 
     return (
         <Router>
@@ -87,7 +81,7 @@ class App extends Component {
             <Route exact path="/" render={HomeComponent}/>
             <Route exact path="/userProfile" render={UserProfileComponent}/>
             <Route exact path="/login" render={LogInComponent}/>
-            <Route exact path="/credits" render={CreditComponent}/>
+            <Route exact path="/credits" render={CreditsComponent}/>
             <Route exact path ="/debits" render={DebitsComponent}/>
           </div>
         </Router>
