@@ -23,18 +23,17 @@ class App extends Component {
 
   //API requests
  componentDidMount = async () => {
-    let debitAPI = 'https://moj-api.herokuapp.com/debits'
+    let debitAPI = 'https://moj-api.herokuapp.com/debits'  //Link to API for debit info
     let response = await axios.get(debitAPI);
-    console.log(response);
     this.setState({debits: response.data});
   }
 
-  // Update state's currentUser (userName) after "Log In" button is clicked
+  // Update state's currentUser (userName and memberSince) after "Log In" button is clicked
   mockLogIn = (logInInfo) => {  
     const newUser = {...this.state.currentUser}
     var today = new Date()
     newUser.userName = logInInfo.userName
-    newUser.memberSince = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear()
+    newUser.memberSince = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear() 
     this.setState({currentUser: newUser})
 
   }
@@ -43,10 +42,9 @@ class App extends Component {
     e.preventDefault()  //stops page refresh on form submission
     var today = new Date()
     var currentDay = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate()
-    console.log(currentDay)
     this.setState(prevState => ({
       accountBalance: (this.state.accountBalance - e.target.amount.value).toFixed(2),
-      debits: [...prevState.debits, {id: this.state.debits.length+1, amount: e.target.amount.value, description: e.target.description.value, date: currentDay}]
+      debits: [...prevState.debits, {id: this.state.debits.length+1, amount: e.target.amount.value, description: e.target.description.value, date: currentDay}] //update state with a new item
     }))
   }
 
