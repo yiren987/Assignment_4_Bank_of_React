@@ -1,3 +1,4 @@
+// src/components/Credits.js
 import AccountBalance from './AccountBalance';
 import {Link} from 'react-router-dom';
 
@@ -17,9 +18,12 @@ return (
         <label htmlFor="description">Description</label>
         <input type="text" name="description" />
         <label htmlFor="amount">Amount</label>
-        <input type="number" name="amount" />
+        <input type="number" step="0.01" name="amount" />
         <button type="submit">Add Credit</button>
     </form>
+    <div>
+        Balance: {props.accountBalance}
+    </div>
     <Link to="/">Return to Home</Link>
     </div>
     );
