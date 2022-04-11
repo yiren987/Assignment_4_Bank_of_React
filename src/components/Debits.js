@@ -10,6 +10,12 @@ const Debits = (props) => {
     }
     return (
     	<div>
+        <div class="navbar">
+            <a href='/'>Home</a> 
+            <a href='/login'>Login</a>
+            <a href='/userProfile'>User Profile</a> 
+            <a href=''>Credits (to be implemented in the Assignment)</a>
+          </div>
     	   <h1>Debits</h1>
     	   {debitsView()}
            <form onSubmit={props.addDebit}>
