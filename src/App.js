@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
+import Credits from './components/Credits';
 import Debit from './components/Debits';
 import axios from 'axios';
 
@@ -17,15 +18,21 @@ class App extends Component {
         userName: 'Joe Smith',
         memberSince: '07/23/96',
       },
+      credits:[],
       debits: []
     }
   }
 
   //API requests
  componentDidMount = async () => {
+    let creditAPI = 'https://moj-api.herokuapp.com/credits'  //Link to API for credit info
     let debitAPI = 'https://moj-api.herokuapp.com/debits'  //Link to API for debit info
-    let response = await axios.get(debitAPI);
-    this.setState({debits: response.data});
+
+    let cResponse = await axios.get(creditAPI);
+    let dResponse = await axios.get(debitAPI);
+
+    this.setState({credits: cResponse.data});
+    this.setState({debits: dResponse.data});
   }
 
   // Update state's currentUser (userName and memberSince) after "Log In" button is clicked
@@ -35,6 +42,22 @@ class App extends Component {
     newUser.userName = logInInfo.userName
     newUser.memberSince = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear() 
     this.setState({currentUser: newUser})
+
+  }
+
+  addCredit = (e) =>{
+    e.preventDefault()
+    const inputDesc = e.target.description.value
+    const inputAm = parseInt(e.target.amount.value)
+    const date = new Date();
+    const formatDate = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+    const testCredit=[{
+        id:this.state.credits.length+1,
+        description: inputDesc,
+        date: formatDate,
+        amount: inputAm
+      }]
+    this.setState({credits: this.state.credits.concat(testCredit)})
 
   }
 
@@ -55,6 +78,7 @@ class App extends Component {
         <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />);  // Pass props to "LogIn" component
+    const CreditComponent = () =>(<Credits credits={this.state.credits} addCredit={this.addCredit} accountBalance={this.state.accountBalance}/>)
     const DebitsComponent = () => (<Debit accountBalance={this.state.accountBalance} debits={this.state.debits} addDebit={this.addDebit}/>); // Pass props to "Debits" component
 
     return (
@@ -63,6 +87,7 @@ class App extends Component {
             <Route exact path="/" render={HomeComponent}/>
             <Route exact path="/userProfile" render={UserProfileComponent}/>
             <Route exact path="/login" render={LogInComponent}/>
+            <Route exact path="/credits" render={CreditComponent}/>
             <Route exact path ="/debits" render={DebitsComponent}/>
           </div>
         </Router>
