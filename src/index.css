@@ -16,18 +16,3 @@ code {
 input, button {
 	margin: 5px;
 }
-.navbar{
-  background-color: rgb(54, 54, 54);
-  overflow: hidden;
-  padding: 20px 16px 20px;
-  margin-bottom: 1%;
-}
-.navbar a{
-  color: #f2f2f2;
-  padding: 20px 16px 20px;
-  text-decoration: none;
-  font-size: 20px;
-}
-.navbar a:hover{
-  background-color:#4caada;
-}

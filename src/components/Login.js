@@ -40,12 +40,6 @@ class LogIn extends Component {
     // Render the login form
     return (
       <div>
-        <div class="navbar">
-            <a href='/'>Home</a> 
-            <a href='/userProfile'>User Profile</a> 
-            <a href=''>Credits (to be implemented in the Assignment)</a>
-            <a href='/debits'>Debits</a>
-          </div>
         <h1>Login</h1>
 
         <form onSubmit={this.handleSubmit}>
