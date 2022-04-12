@@ -12,6 +12,13 @@ const Debits = (props) => {
     }
     return (
     	<div>
+         <div class="navbar">
+            <a><Link to="/">Home</Link></a>
+            <a><Link to="/userProfile">User Profile</Link></a> 
+            <a><Link to="/login">Login</Link></a>
+            <a><Link to="credits">Credits</Link></a>
+            <a><Link to="debits">Debits</Link></a>
+          </div>
     	   <h1>Debits</h1>
     	   {debitsView()}
            <form onSubmit={props.addDebit}>
