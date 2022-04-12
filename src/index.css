@@ -16,6 +16,7 @@ code {
 input, button {
 	margin: 5px;
 }
+/*navigation bar*/
 .navbar{
   background-color: rgb(54, 54, 54);
   overflow: hidden;
@@ -31,3 +32,12 @@ input, button {
 .navbar a:hover{
   background-color:#4caada;
 }
+/*navigation bar end*/
+
+/*credit & debit*/
+.balance,li,.credit_debit_form{
+  text-align: left;
+  padding-left: 30%;
+}
+
+/*credit & debit end*/
