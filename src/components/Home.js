@@ -10,11 +10,11 @@ class Home extends Component {
     return (
         <div>
           <div class="navbar">
-            <a><Link to="/">Home</Link></a>
-            <a><Link to="/userProfile">User Profile</Link></a> 
-            <a><Link to="/login">Login</Link></a>
-            <a><Link to="credits">Credits</Link></a>
-            <a><Link to="debits">Debits</Link></a>
+            <Link to="/">Home</Link>
+            <Link to="/userProfile">User Profile</Link>
+            <Link to="/login">Login</Link>
+            <Link to="credits">Credits</Link>
+            <Link to="debits">Debits</Link>
           </div>
           <img src="https://picsum.photos/200/200" alt="bank"/>
           <h1>Bank of React</h1>
