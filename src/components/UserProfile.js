@@ -8,6 +8,13 @@ class UserProfile extends Component {
   render() {
     return (
         <div>
+          <div class="navbar">
+            <a><Link to="/">Home</Link></a>
+            <a><Link to="/userProfile">User Profile</Link></a> 
+            <a><Link to="/login">Login</Link></a>
+            <a><Link to="credits">Credits</Link></a>
+            <a><Link to="debits">Debits</Link></a>
+          </div>
           <h1>User Profile</h1>
 
           <div>Username: {this.props.userName}</div>
