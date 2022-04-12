@@ -1,5 +1,4 @@
 // src/components/Debits.js
-import AccountBalance from './AccountBalance';
 import {Link} from 'react-router-dom';
 
 const Debits = (props) => {
@@ -24,12 +23,9 @@ const Debits = (props) => {
              <label htmlFor="description">Description</label>
              <input type="text" name="description" />
              <label htmlFor="amount">Amount</label>
-             <input type="number" step="0.01" name="amount" />
+             <input type="number" name="amount" />
              <button type="submit">Add Debit</button>
            </form>
-           <div>
-             Balance: {props.accountBalance}
-           </div>
         <Link to="/">Return to Home</Link>
     	</div>
 
