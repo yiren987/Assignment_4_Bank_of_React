@@ -76,7 +76,8 @@ class App extends Component {
     const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} debits={this.state.debits} addDebit={this.addDebit}/>); // Pass props to "Debits" component
 
     return (
-        <Router>
+        //Added root path to the basename of the router to fix github pages deploying to a blank page
+        <Router basename={process.env.PUBLIC_URL}>  
           <div>
             <Route exact path="/" render={HomeComponent}/>
             <Route exact path="/userProfile" render={UserProfileComponent}/>
