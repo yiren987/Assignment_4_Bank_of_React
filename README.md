@@ -6,6 +6,9 @@
 - **Tim Zhen:** timzhen38
 - **Yi Ren Mai:** yiren987
 
+# Website Link
+[Link to website](https://yiren987.github.io/Assignment_4_Bank_of_React)
+
 # bank-of-react-example-code
 This repository contains a React application example on how to implement client-side routing with React Router and its components including Route, Router, Switch, Link, and Redirect.
 
