@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Assignment_4_Bank_of_React/static/css/main.ee86c1a6.css",
+    "main.js": "/Assignment_4_Bank_of_React/static/js/main.9a303669.js",
+    "static/js/787.6058ec00.chunk.js": "/Assignment_4_Bank_of_React/static/js/787.6058ec00.chunk.js",
+    "index.html": "/Assignment_4_Bank_of_React/index.html",
+    "main.ee86c1a6.css.map": "/Assignment_4_Bank_of_React/static/css/main.ee86c1a6.css.map",
+    "main.9a303669.js.map": "/Assignment_4_Bank_of_React/static/js/main.9a303669.js.map",
+    "787.6058ec00.chunk.js.map": "/Assignment_4_Bank_of_React/static/js/787.6058ec00.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee86c1a6.css",
+    "static/js/main.9a303669.js"
+  ]
+}
