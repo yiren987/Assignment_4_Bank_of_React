@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 class UserProfile extends Component {
   render() {
     return (
-        <div>
+      <div class="content">
           <div class="navbar">
             <Link to="/">Home</Link>
             <Link to="/userProfile">User Profile</Link>
@@ -16,11 +16,10 @@ class UserProfile extends Component {
             <Link to="debits">Debits</Link>
           </div>
           <h1>User Profile</h1>
-
-          <div>Username: {this.props.userName}</div>
-          <div>Member Since: {this.props.memberSince}</div>
-          
-          <Link to="/">Return to Home</Link>
+          <div class="box">
+            <div>Username: {this.props.userName}</div>
+            <div>Member Since: {this.props.memberSince}</div>
+          </div>
         </div>
     );
   }

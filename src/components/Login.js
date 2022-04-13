@@ -40,7 +40,7 @@ class LogIn extends Component {
     }
     // Render the login form
     return (
-      <div>
+      <div class="content">
         <div class="navbar">
           <Link to="/">Home</Link>
           <Link to="/userProfile">User Profile</Link>
@@ -49,18 +49,19 @@ class LogIn extends Component {
           <Link to="debits">Debits</Link>
         </div>
         <h1>Login</h1>
-
-        <form class="login_form" onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="userName">User Name</label><br></br>
-            <input type="text" name="userName" onChange={this.handleChange} value={this.state.user.userName} />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label><br></br>
-            <input type="password" name="password" />
-          </div>
-          <button>Log In</button>
-        </form>                  
+        <div class="box">
+          <form class="login_form" onSubmit={this.handleSubmit}>
+            <div>
+              <label htmlFor="userName">User Name</label><br></br>
+              <input type="text" name="userName" onChange={this.handleChange} value={this.state.user.userName} />
+            </div>
+            <div>
+              <label htmlFor="password">Password</label><br></br>
+              <input type="password" name="password" />
+            </div>
+            <button>Log In</button>
+          </form>        
+          </div>          
       </div>
     )
   }

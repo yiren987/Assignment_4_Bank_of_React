@@ -37,7 +37,17 @@ input, button {
 /*credit & debit*/
 .balance,li,.credit_debit_form{
   text-align: left;
-  padding-left: 30%;
+  padding-left: 30px;
+}
+/*credit & debit end*/
+.box{
+  width: fit-content;
+  border-radius: 25px;
+  background-color:#81ccf2;
+  padding: 10px;
+  margin: 0 auto;
 }
 
-/*credit & debit end*/
+.content{
+  justify-content: center;
+}
