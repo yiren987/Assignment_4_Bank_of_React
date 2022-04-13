@@ -11,7 +11,7 @@ const Credits = (props) => {
     }) 
     }
 return (
-    <div>
+    <div class="content">
         <div class="navbar">
             <Link to="/">Home</Link>
             <Link to="/userProfile">User Profile</Link>
@@ -20,16 +20,18 @@ return (
             <Link to="debits">Debits</Link>
         </div>
         <h1>Credits</h1>
-        {creditsView()}
-        <form class="credit_debit_form" onSubmit={props.addCredit}>
-            <label htmlFor="description">Description</label>
-            <input type="text" name="description" />
-            <label htmlFor="amount">Amount</label>
-            <input type="number" step="0.01" name="amount" />
-            <button type="submit">Add Credit</button>
-        </form>
-        <div class="balance">
-            Balance: {props.accountBalance}
+        <div class="box">
+            {creditsView()}
+            <form class="credit_debit_form" onSubmit={props.addCredit}>
+                <label htmlFor="description">Description</label>
+                <input type="text" name="description" />
+                <label htmlFor="amount">Amount</label>
+                <input type="number" step="0.01" name="amount" />
+                <button type="submit">Add Credit</button>
+            </form>
+            <div class="balance">
+                Balance: {props.accountBalance}
+            </div>
         </div>
     </div>
     );
