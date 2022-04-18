@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import AccountBalance from './AccountBalance';
 import {Link} from 'react-router-dom';
+import bankImage from './image/bank.jpg';
 
 class Home extends Component {
   render() {
@@ -16,9 +17,9 @@ class Home extends Component {
           <Link to="credits">Credits</Link>
           <Link to="debits">Debits</Link>
         </div>
-        <img src="https://picsum.photos/200/200" alt="bank"/>
+        <img src={bankImage} alt="bank"/>
         <h1>Bank of React</h1>
-        <div class="box">
+        <div class="balance">
           <AccountBalance accountBalance={this.props.accountBalance}/>
         </div>
       </div>

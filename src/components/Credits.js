@@ -21,7 +21,6 @@ return (
         </div>
         <h1>Credits</h1>
         <div class="box">
-            {creditsView()}
             <form class="credit_debit_form" onSubmit={props.addCredit}>
                 <label htmlFor="description">Description</label>
                 <input type="text" name="description" />
@@ -29,10 +28,14 @@ return (
                 <input type="number" step="0.01" name="amount" />
                 <button type="submit">Add Credit</button>
             </form>
+            <br/>
+            {creditsView()}
+            <br/>
             <div class="balance">
                 Balance: {props.accountBalance}
             </div>
         </div>
+        
     </div>
     );
 }

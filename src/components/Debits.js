@@ -21,7 +21,6 @@ const Debits = (props) => {
           </div>
     	   <h1>Debits</h1>
          <div class="box">
-          {debitsView()}
             <form class="credit_debit_form" onSubmit={props.addDebit}>
               <label htmlFor="description">Description</label>
               <input type="text" name="description" />
@@ -29,9 +28,13 @@ const Debits = (props) => {
               <input type="number" step="0.01" name="amount" />
               <button type="submit">Add Debit</button>
             </form>
+            <br/>
+            {debitsView()}
+            <br/>
             <div class="balance">
               Balance: {props.accountBalance}
             </div>
+            
            </div>
     	</div>
     )
